@@ -1,1 +1,0 @@
-# DFROBOT PIR(Motion) Sensor
