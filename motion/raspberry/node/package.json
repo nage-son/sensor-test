@@ -12,6 +12,7 @@
         "email": "jhson@nagesoft.com"
     },
     "dependencies": {
-        "onoff": "0.3.2"
+        "onoff": "0.3.2",
+        "sleep": "2.0.0"
     }
 }
