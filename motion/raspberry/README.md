@@ -14,3 +14,9 @@ $ sudo ./run
 $ cd py
 $ sudo ./run.py
 ```
+
+## nodejs
+```
+$ cd node
+$ sudo node app.js
+```
