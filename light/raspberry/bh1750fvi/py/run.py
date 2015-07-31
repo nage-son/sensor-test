@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 import RPi.GPIO as gpio
 import smbus
 import time
@@ -37,6 +38,10 @@ ONE_TIME_HIGH_RES_MODE_2 = 0x21
 # Start measurement at 1lx resolution. Time typically 120ms
 # Device is automatically set to Power Down after measurement.
 ONE_TIME_LOW_RES_MODE = 0x23
+
+MAX_LUX = 65535
+REVISION = 5000 # 보정값
+
  
 #bus = smbus.SMBus(0) # Rev 1 Pi uses 0
 bus = smbus.SMBus(1)  # Rev 2 Pi uses 1
@@ -53,10 +58,13 @@ def readLight(addr=DEVICE):
 def main():
     try:
         while True:
-            # print "Light Level : " + str(readLight()) + " lx"
-            lightValue = readLight() / 10
-            
-            LED.ChangeDutyCycle(readLight() / 10)
+            readValue = readLight()
+            lightValue = readValue / MAX_LUX * REVISION
+
+            if lightValue > 100:
+            	lightValue = 100
+
+            LED.ChangeDutyCycle(lightValue)
             time.sleep(0.18)
 
     except KeyboardInterrupt:
