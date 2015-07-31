@@ -1,6 +1,6 @@
 {
     "name": "sensor-test-motion",
-    "description": "DFROBOT PIR sensor test.",
+    "description": "DFROBOT PIR Raspberry Pi sensor test.",
     "version": "0.0.1",
     "license": "MIT",
     "repository": {
