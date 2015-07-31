@@ -1,0 +1,18 @@
+{
+    "name": "sensor-test-motion",
+    "description": "DFROBOT PIR BBB sensor test.",
+    "version": "0.0.1",
+    "license": "MIT",
+    "repository": {
+    	"type": "git",
+    	"url": "https://github.com/nage-son/sensor-test"
+    },
+    "author": {
+        "name": "nagesoft",
+        "email": "jhson@nagesoft.com"
+    },
+    "dependencies": {
+        "onoff": "0.3.2",
+        "sleep": "2.0.0"
+    }
+}
