@@ -13,6 +13,6 @@
     },
     "dependencies": {
         "onoff": "0.3.2",
-        "sleep": "2.0.0"
+        "sleep": "3.0.0"
     }
 }
