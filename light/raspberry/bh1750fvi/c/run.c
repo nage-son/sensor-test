@@ -10,6 +10,7 @@
 #define I2C 0x23
 #define REVISION 5000 // 보정값
 #define MAX_LUX 65535
+//#define DEBUG
 
 typedef enum {
     false,
@@ -104,12 +105,16 @@ int main() {
 			lightValue = 100.0;
 		}
 
+		#ifdef DEBUG
 		printf("%.3f\n", lightValue);
+		#endif
 
 		softPwmWrite(c_led_pin, lightValue);
 
 		usleep(180000);
 	}
+
+	digitalWrite(c_led_pin, LOW);
 
 	return 0;
 }
