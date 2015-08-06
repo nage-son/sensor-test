@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 import Adafruit_BBIO.PWM as PWM
 import smbus
 import time
@@ -9,7 +9,8 @@ bus = None
 addr = None
 
 MAX_LUX = 65535
-REVISION = 5000 # 보정값
+REVISION = 5000  # 보정값
+
 
 def init():
     global STATUS, bus, addr
@@ -23,9 +24,11 @@ def init():
 
         STATUS = True
 
+
 def read_light():
     while True:
         read_data()
+
 
 def read_data():
     global bus, addr
@@ -33,12 +36,12 @@ def read_data():
     data = bus.read_i2c_block_data(addr, 0x11)
     lux2 = (data[1] + (256 * data[0])) / 1.2
 
-    lightValue = lux2 / MAX_LUX * REVISION
+    light_value = lux2 / MAX_LUX * REVISION
 
-    if lightValue > 100:
-        lightValue = 100
+    if light_value > 100:
+        light_value = 100
 
-    PWM.set_duty_cycle(LED_PIN, lightValue)
+    PWM.set_duty_cycle(LED_PIN, light_value)
 
     time.sleep(0.18)
 
